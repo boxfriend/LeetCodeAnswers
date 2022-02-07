@@ -30,3 +30,19 @@ public class Solution {
 }
 //Runtime: 88 ms, faster than 88.36%
 //Memory Usage: 39.7 MB, less than 6.03%
+
+public class Solution {
+    public char FindTheDifference(string s, string t) {
+        var sSum = 0;
+        foreach(var ch in s)
+            sSum += (int)ch;
+            
+        var tSum = 0;
+        foreach(var ch in t)
+            tSum += (int)ch;
+        
+        return (char)(tSum - sSum);
+    }
+}
+//Runtime: 124 ms, faster than 46.98%
+//Memory Usage: 37.2 MB, less than 67.24%
