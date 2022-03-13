@@ -28,3 +28,31 @@ public class Solution {
 }
 //Runtime: 128 ms, faster than 22.05%
 //Memory Usage: 36.2 MB, less than 73.93%
+
+public class Solution {
+    private Dictionary<char,char> dict = new ()
+    { 
+        [']'] = '[',
+        ['}'] = '{',
+        [')'] = '('
+    };
+    public bool IsValid(string s) {
+       
+        var stack = new Stack<char>();
+        foreach(var ch in s)
+        {
+            if(ch is '{' or '(' or '[')
+                stack.Push(ch);
+            
+            if(dict.ContainsKey(ch))
+            {
+                if(stack.Count == 0 || dict[ch] != stack.Pop())
+                    return false;
+            }
+        }
+        
+        return stack.Count == 0;
+    }
+}
+//Runtime: 60 ms, faster than 99.68%
+//Memory Usage: 38.3 MB, less than 10.31%
